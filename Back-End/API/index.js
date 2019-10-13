@@ -2,9 +2,6 @@ const express = require('express');
 const bp = require('body-parser');
 useragent = require('express-useragent');
 
-const scraper = require('./modules/scraper.js');
-
-var html = scraper.getUrlContent();
 
 const app = express();
 const port = 2000;

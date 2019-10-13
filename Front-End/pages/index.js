@@ -1,91 +1,42 @@
 import React from 'react'
-import Link from 'next/link'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import Card from '../components/card'
+import GridLayout from 'react-grid-layout'
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-    </Head>
+const Home = () => {
 
-    <Nav />
+  var layout = [
+    { i: '1', x: 0, y: 0, w: 4, h: 1, static: true },
+    { i: '2', x: 6, y: 0, w: 4, h: 1, static: true },
+    { i: '3', x: 0, y: 1, w: 4, h: 1, static: true },
+    { i: '4', x: 6, y: 1, w: 4, h: 1, static: true }
+  ];
 
-    <div className='hero'>
-      <h1 className='title'>Welcome to Next.js!</h1>
-      <p className='description'>
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+  
+  return (
 
-      <div className='row'>
-        <Link href='https://github.com/zeit/next.js#setup'>
-          <a className='card'>
-            <h3>Getting Started &rarr;</h3>
-            <p>Learn more about Next.js on GitHub and in their examples.</p>
-          </a>
-        </Link>
-        <Link href='https://github.com/zeit/next.js/tree/master/examples'>
-          <a className='card'>
-            <h3>Examples &rarr;</h3>
-            <p>Find other example boilerplates on the Next.js GitHub.</p>
-          </a>
-        </Link>
-        <Link href='https://github.com/zeit/next.js'>
-          <a className='card'>
-            <h3>Create Next App &rarr;</h3>
-            <p>Was this tool helpful? Let us know how we can improve it!</p>
-          </a>
-        </Link>
-      </div>
+    <div>
+      <GridLayout className="layout" layout={layout} cols={12} rowHeight={400} width={1200}>
+
+        <div key="1">
+          <Card></Card>
+        </div>
+        <div key="2">
+          <Card></Card>
+        </div>
+        <div key="3">
+          <Card></Card>
+        </div>
+        <div key="4">
+          <Card></Card>
+        </div>
+
+        {/* <div key="a" data-grid={{ x: 0, y: 0, w: 1, h: 2, static: true }}>a</div>
+        <div key="b" data-grid={{ x: 1, y: 0, w: 3, h: 2, minW: 2, maxW: 4 }}>b</div>
+        <div key="c" data-grid={{ x: 4, y: 0, w: 1, h: 2 }}>c</div> */}
+
+      </GridLayout>
     </div>
-
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
+  )
+}
 
 export default Home
